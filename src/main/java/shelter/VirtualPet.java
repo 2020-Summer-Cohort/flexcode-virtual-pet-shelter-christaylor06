@@ -1,6 +1,9 @@
 package shelter;
 
+import java.util.Random;
+
 public class VirtualPet {
+
 
     //Fields (Properties for each Virtual Pet object)
     private String petName;
@@ -10,12 +13,18 @@ public class VirtualPet {
     private int boredomMeter;
 
     //Constructors
-    public VirtualPet(String petName, String petDescription){
+    public VirtualPet(String petName, String petDescription) {
         this.petName = petName;
         this.petDescription = petDescription;
-//        hunger = 5;
-//        thirst = 5;
-//        boredom = 5;
+        this.hungerMeter = (int) getRandomIntegerBetweenRange(0,10);
+        this.thirstMeter = (int) getRandomIntegerBetweenRange(0,10);
+        this.boredomMeter = (int) getRandomIntegerBetweenRange(0,10);
+    }
+
+
+    public static double getRandomIntegerBetweenRange(double min, double max){
+        double x = (int)(Math.random()*((max-min)+1))+min;
+        return x;
     }
 
     public VirtualPet(String petName, String petDescription, int localHungerMeter, int localThirstMeter, int localBoredomMeter) {
@@ -26,13 +35,18 @@ public class VirtualPet {
         this.boredomMeter = localBoredomMeter;
     }
 
+//    public static void remove(String petName) {
+//    }
+
     //Methods
-    public String getPetName(){
+    public String getPetName() {
         return petName;
     }
-    public String getPetDescription(){
+
+    public String getPetDescription() {
         return petDescription;
     }
+
     public int getHunger() {
         return hungerMeter;
     }
@@ -46,15 +60,16 @@ public class VirtualPet {
     }
 
     public void eat() {
-        hungerMeter = 0;
-    }
-    public void drink() {
-        thirstMeter = 0;
-    }
-    public void plays() {
-        boredomMeter = 0;
+        hungerMeter += 1;
     }
 
+    public void drink() {
+        thirstMeter += 1;
+    }
+
+    public void plays() {
+        boredomMeter += 1;
+    }
 }
 //        This page should create an arraylist for each new pet added
 //          The name and description should come from user input

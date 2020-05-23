@@ -89,4 +89,31 @@ public class VirtualPetTest {
     }
 
 
+    @Test
+    void adoptPet() {
+    }
+
+    @Test
+    void getHunger() {
+    }
+
+    @Test
+    void getThirst() {
+    }
+
+    @Test
+    void getBoredom() {
+    }
+
+    @Test
+    void eat() {
+    }
+
+    @Test
+    void drink() {
+    }
+
+    @Test
+    void plays() {
+    }
 }

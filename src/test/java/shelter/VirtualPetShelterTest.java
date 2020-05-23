@@ -18,43 +18,7 @@ public class VirtualPetShelterTest {
     }
     @Test
     public void shouldCreateANewHashMapEntryForNewlyAdmittedPet() {
-        //arrange
-        //act
-        //assert
-        //        Map<String, ArrayList<Item>> items = new HashMap<String, ArrayList<Item>>();
-    }   //same as addOrder in cookie test?
-//        @Test
-//        public void shouldReturnInventoryOfAllPets(){
-//            VirtualPetShelter shelterUnderTest = new VirtualPetShelter();
-//            VirtualPet virtualPetTest = new VirtualPet("Tester", 0, 0, 0);
-//            VirtualPet virtualPetTest2 = new VirtualPet("Tester2", 0, 0, 0);
-//            VirtualPet virtualPetTest3 = new VirtualPet("Tester3", 0, 0, 0);
-//            shelterUnderTest.intakePet(virtualPetTest);
-//            shelterUnderTest.intakePet(virtualPetTest2);
-//            shelterUnderTest.intakePet(virtualPetTest3);
-//            String inventoryCheck = shelterUnderTest.getInventory();
-////            //same as "showOrder" in cookie order
-//        }
-//    @Test
-//    public void shouldCreateANewHashMapEntryForNewlyAdmittedPet(){
-//        //arrange
-//        //act
-//        //assert
-//        //        Map<String, ArrayList<Item>> items = new HashMap<String, ArrayList<Item>>();
-
-
-//    @Test
-//    public void shouldRemoveAHashMapEntryWhenAPetIsAdopted() {
-//        VirtualPetShelter shelterUnderTest = new VirtualPetShelter();
-//        VirtualPet virtualPetTest = new VirtualPet("Tester", 0, 0, 0);
-//        VirtualPet virtualPetTest2 = new VirtualPet("Tester2", 0, 0, 0);
-//        VirtualPet virtualPetTest3 = new VirtualPet("Tester3", 0, 0, 0);
-//        shelterUnderTest.intakePet(virtualPetTest);
-//        shelterUnderTest.intakePet(virtualPetTest2);
-//        shelterUnderTest.intakePet(virtualPetTest3);
-//        shelterUnderTest.adoptPet("Tester2");
-//
-//    }
+    }
 
     @Test
     public void shouldPlayWithASinglePet() {
@@ -85,5 +49,35 @@ public class VirtualPetShelterTest {
     }
 
 
+    @Test
+    void testGetInventory() {
+    }
 
+    @Test
+    void getPetName() {
+    }
+
+    @Test
+    void intakeNewPet() {
+    }
+
+    @Test
+    void testAdoptPet() {
+    }
+
+    @Test
+    void feedAllPets() {
+    }
+
+    @Test
+    void waterForAllPets() {
+    }
+
+    @Test
+    void contains() {
+    }
+
+    @Test
+    void getPet() {
+    }
 }

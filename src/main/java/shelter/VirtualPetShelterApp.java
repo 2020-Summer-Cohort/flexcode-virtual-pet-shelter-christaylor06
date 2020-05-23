@@ -45,22 +45,31 @@ public class VirtualPetShelterApp {
                 System.out.println("You gave all the pets water");
             } else if (menuOption.equals("3")) {
                 System.out.println("You'd like to play with a pet. Here's who is available: ");
+                System.out.println();
                 showPetNames(misfitPetShelter);
-                System.out.println("Enter the name of the pet that you would like to play with:");
+                System.out.println();
+                System.out.println("Enter the name of the pet that you would like to play with: ");
                 String petName = input.nextLine();
-                if(misfitPetShelter.contains(petName)) {
+                if (misfitPetShelter.contains(petName)) {
                     VirtualPet playtime = misfitPetShelter.getPet(petName);
                     playtime.plays();
                 }
-                System.out.println("You played with [pet name]");
+                System.out.println("You played with " + petName);
             } else if (menuOption.equals("4")) {
                 System.out.println("Someone is looking to adopt a pet. Here's who is available: ");
                 showPetNamesAndDescriptions(misfitPetShelter);
-                System.out.println("Which pet did they select?");
-                System.out.println("[pet name] was adopted");
+                System.out.println("Enter the name of the pet to be adopted: ");
+                String petName = input.nextLine();
+//                if (misfitPetShelter.contains(petName)) {
+//                    VirtualPet adoptPet = misfitPetShelter.getPet(petName);
+//                    adoptPet.remove(VirtualPet);
+//                }
+                System.out.println(petName + " was adopted");
             } else if (menuOption.equals("5")) {
                 System.out.println("A new pet has arrived. Tells us the the pet's name:");
+                String newPetName = input.nextLine();
                 System.out.println("Provide a brief description of ths pet: ");
+                String newPetDescription = input.nextLine();
                 System.out.println("[pet name] has been admitted into the shelter");
             } else {
                 System.out.println("Please enter a number between 1 and 6");
@@ -85,26 +94,26 @@ public class VirtualPetShelterApp {
         }
     }
 
-    public static void showPetStatuses(VirtualPetShelter all) {
+    public static void showPetStatuses(VirtualPetShelter allPets) {
         System.out.println("Pet Name\t|Hunger\t|Thirst\t|Boredom");
         System.out.println("________\t|______\t|______\t|_______");
-        Map<String, VirtualPet> shelter = all.getInventory();
+        Map<String, VirtualPet> shelter = allPets.getInventory();
         for (Map.Entry<String, VirtualPet> entry : shelter.entrySet()) {
             VirtualPet petVariable = entry.getValue();
-            System.out.println(petVariable.getPetName() + "\t\t|" + petVariable.getHunger()+ "\t\t|" + petVariable.getThirst() + "\t\t|" + petVariable.getBoredom());
+            System.out.println(petVariable.getPetName() + "\t\t|" + petVariable.getHunger() + "\t\t|" + petVariable.getThirst() + "\t\t|" + petVariable.getBoredom());
         }
     }
 
-    private static void showPetNamesAndDescriptions(VirtualPetShelter all) {
-        Map<String, VirtualPet> shelter = all.getInventory();
+    private static void showPetNamesAndDescriptions(VirtualPetShelter allPets) {
+        Map<String, VirtualPet> shelter = allPets.getInventory();
         for (Map.Entry<String, VirtualPet> entry : shelter.entrySet()) {
             VirtualPet petVariable = entry.getValue();
-            System.out.println(petVariable.getPetName() + petVariable.getPetDescription());
+            System.out.println(petVariable.getPetName() + ": " + petVariable.getPetDescription());
         }
     }
 
-    private static void showPetNames(VirtualPetShelter all) {
-        Map<String, VirtualPet> shelter = all.getInventory();
+    private static void showPetNames(VirtualPetShelter allPets) {
+        Map<String, VirtualPet> shelter = allPets.getInventory();
         for (Map.Entry<String, VirtualPet> entry : shelter.entrySet()) {
             VirtualPet petVariable = entry.getValue();
             System.out.println(petVariable.getPetName());
