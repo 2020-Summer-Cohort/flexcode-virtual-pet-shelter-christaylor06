@@ -1,38 +1,36 @@
 package shelter;
 
-import java.util.List;
 import java.util.Map;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class VirtualPetShelter {
 
-    public static void main(String[] args) {
-        Map<String, ArrayList<String>> pets = new HashMap<String, ArrayList<String>>();
+    private Map<String, VirtualPet> allPets = new HashMap<String, VirtualPet>();
 
-        ArrayList<String> petDetails = new ArrayList<>();
-        petDetails.add("Black cat with green eyes and a fluffy tail.");
-        petDetails.add("Hunger Here");
-        petDetails.add("Thirst Here");
-        petDetails.add("Boredom Here");
-
-        pets.put("Tommy", petDetails);
+    public Map<String, VirtualPet> getInventory() {
+        return allPets;
     }
 
-    ArrayList<VirtualPet> newPets = new ArrayList<>();
-    public void intakePet(VirtualPet virtualPet) {
-        newPets.add(virtualPet);
+    public VirtualPet getPetName(String petName) {
+        return allPets.get(petName);
+    }
+    public void feedAllPets(){
+        for(Map.Entry<String, VirtualPet> entry : allPets.entrySet()){
+            VirtualPet feedPets = entry.getValue();
+            feedPets.eat();
+        }
+    }
+    public void waterForAllPets(){
+        for(Map.Entry<String, VirtualPet> entry : allPets.entrySet()){
+            VirtualPet waterPets = entry.getValue();
+            waterPets.drink();
+        }
+    }
+    public void playWithAPet(VirtualPet playtime){
+        playtime.plays();
     }
 
-    public int getInventoryCount() {
-        int pets = 0;
-        for(VirtualPet );
-    }
-
-    public void adoptPet(String tester2) {
-    }
 }
-
 
 
 //  For calling HashMaps for Virtual Pet

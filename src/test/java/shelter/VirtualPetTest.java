@@ -4,36 +4,53 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class VirtualPetTest {
     @Test
+    void getPetName() {
+        VirtualPet underTest = new VirtualPet("Tommy", "black cat with a fluffy tail", 7, 0, 0);
+        String petName = underTest.getPetName();
+        assertEquals("Tommy", petName);
+    }
+
+    @Test
+    void getPetDescription() {
+        VirtualPet underTest = new VirtualPet("Tommy", "black cat with a fluffy tail", 7, 0, 0);
+        String petDescription = underTest.getPetDescription();
+        assertEquals("black cat with a fluffy tail", petDescription);
+    }
+
+    @Test
     public void shouldHaveADefaultHungerOf5() {
-        VirtualPet underTest = new VirtualPet("",5,0,0);
+        VirtualPet underTest = new VirtualPet("Tommy", "black cat with a fluffy tail", 5, 0, 0);
         int hungerMeter = underTest.getHunger();
         assertEquals(5, hungerMeter);
     }
+
     @Test
     public void shouldHaveADefaultHungerOf7() {
-        VirtualPet underTest = new VirtualPet("",7,0,0);
+        VirtualPet underTest = new VirtualPet("Tommy", "black cat with a fluffy tail", 7, 0, 0);
         int hungerMeter = underTest.getHunger();
         assertEquals(7, hungerMeter);
     }
+
     @Test
     public void shouldHaveADefaultThirstOf5() {
-        VirtualPet underTest = new VirtualPet("",7,5,0);
+        VirtualPet underTest = new VirtualPet("Tommy", "black cat with a fluffy tail", 7, 5, 0);
         int thirstMeter = underTest.getThirst();
         assertEquals(5, thirstMeter);
     }
+
     @Test
     public void shouldHaveADefaultThirstOf4() {
-        VirtualPet underTest = new VirtualPet("",7, 4,0);
+        VirtualPet underTest = new VirtualPet("Tommy", "black cat with a fluffy tail", 7, 4, 0);
         int thirstMeter = underTest.getThirst();
         assertEquals(4, thirstMeter);
     }
+
     @Test
     public void shouldHaveADefaultBoredomOf2() {
-        VirtualPet underTest = new VirtualPet("",7, 4,2);
+        VirtualPet underTest = new VirtualPet("Tommy", "black cat with a fluffy tail", 7, 4, 2);
         int boredomMeter = underTest.getBoredom();
         assertEquals(2, boredomMeter);
     }
-
 
 
     @Test
@@ -42,31 +59,34 @@ public class VirtualPetTest {
         //act
         //assert
     }
+
     @Test
     public void shouldRemovePetFromArrayListWhenAdopted() {
         //arrange
         //act
         //assert
     }
+
     @Test
     public void shouldDecreaseBoredomWhenPlayedWith() {
         //arrange
         //act
         //assert
     }
+
     @Test
     public void shouldDecreaseThirstForAllPetsWhenGivenWater() {
         //arrange
         //act
         //assert
     }
+
     @Test
     public void shouldDecreaseHungerForAllPetsWhenFed() {
         //arrange
         //act
         //assert
     }
-
 
 
 }
