@@ -1,6 +1,7 @@
 package shelter;
 
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 
 public class VirtualPetShelterApp {
@@ -8,7 +9,7 @@ public class VirtualPetShelterApp {
 
         VirtualPetShelter misfitPetShelter = new VirtualPetShelter();
         VirtualPet pet1 = new VirtualPet("Josie", "A social calico kitten with a penchant for rock music");
-        VirtualPet pet2 = new VirtualPet("Tom", "Tuxedo adult male cat. Good companion. Bad mouser.");
+        VirtualPet pet2 = new VirtualPet("Thomas", "Tuxedo adult male cat. Good companion. Bad mouser.");
         VirtualPet pet3 = new VirtualPet("Selina", "Adult female cat. A tad mischievous... but always with the best intentions.");
         VirtualPet pet4 = new VirtualPet("Salem", "Adult male cat. Black with magical green eyes.");
         VirtualPet pet5 = new VirtualPet("Bubbles", "A loving but very confused little bulldog.");
@@ -23,7 +24,7 @@ public class VirtualPetShelterApp {
         System.out.println("Thank you for volunteering at The Island of Misfit Pets.");
         System.out.println();
         System.out.println("Here's who is staying with us right now: ");
-        System.out.println("<METHOD TO PULL STATUS HERE>");
+        showPetStatuses(misfitPetShelter);
         System.out.println();
         System.out.println("What would you like to do?");
         System.out.println();
@@ -37,17 +38,24 @@ public class VirtualPetShelterApp {
 
         while (!menuOption.equals("6")) {
             if (menuOption.equals("1")) {
-                System.out.println("You fed all the pets.");
+                misfitPetShelter.feedAllPets();
+                System.out.println("You fed all of the pets.");
             } else if (menuOption.equals("2")) {
+                misfitPetShelter.waterForAllPets();
                 System.out.println("You gave all the pets water");
             } else if (menuOption.equals("3")) {
                 System.out.println("You'd like to play with a pet. Here's who is available: ");
-                System.out.println("[NAMES AND DESCRIPTIONS HERE]");
-                System.out.println("Which pet would you like to play with?");
+                showPetNames(misfitPetShelter);
+                System.out.println("Enter the name of the pet that you would like to play with:");
+                String petName = input.nextLine();
+                if(misfitPetShelter.contains(petName)) {
+                    VirtualPet playtime = misfitPetShelter.getPet(petName);
+                    playtime.plays();
+                }
                 System.out.println("You played with [pet name]");
             } else if (menuOption.equals("4")) {
                 System.out.println("Someone is looking to adopt a pet. Here's who is available: ");
-                System.out.println("[NAMES AND DESCRIPTIONS HERE]");
+                showPetNamesAndDescriptions(misfitPetShelter);
                 System.out.println("Which pet did they select?");
                 System.out.println("[pet name] was adopted");
             } else if (menuOption.equals("5")) {
@@ -59,7 +67,7 @@ public class VirtualPetShelterApp {
 //            [NEED TICK HERE]
             }
             System.out.println("This is the status of your pets: ");
-            System.out.println("<METHOD TO PULL STATUS HERE>");
+            showPetStatuses(misfitPetShelter);
             System.out.println();
             System.out.println("What would you like to do next");
             System.out.println();
@@ -76,17 +84,17 @@ public class VirtualPetShelterApp {
             input.close();
         }
     }
-        public static void showPetStatuses(VirtualPetShelter all) {
-            Map<String, VirtualPet> shelter = all.getInventory();
-            for (Map.Entry<String, VirtualPet> entry : shelter.entrySet()) {
-                VirtualPet petVariable = entry.getValue();
-                System.out.println("Pet Name\tHunger\tThirst\tBoredom");
-                System.out.println(petVariable.getPetName() + "\t\t");
-                System.out.println(petVariable.getHunger() + "\t\t");
-                System.out.println(petVariable.getThirst() + "\t\t");
-                System.out.println(petVariable.getBoredom() + "\t\t");
-            }
+
+    public static void showPetStatuses(VirtualPetShelter all) {
+        System.out.println("Pet Name\t|Hunger\t|Thirst\t|Boredom");
+        System.out.println("________\t|______\t|______\t|_______");
+        Map<String, VirtualPet> shelter = all.getInventory();
+        for (Map.Entry<String, VirtualPet> entry : shelter.entrySet()) {
+            VirtualPet petVariable = entry.getValue();
+            System.out.println(petVariable.getPetName() + "\t\t|" + petVariable.getHunger()+ "\t\t|" + petVariable.getThirst() + "\t\t|" + petVariable.getBoredom());
         }
+    }
+
     private static void showPetNamesAndDescriptions(VirtualPetShelter all) {
         Map<String, VirtualPet> shelter = all.getInventory();
         for (Map.Entry<String, VirtualPet> entry : shelter.entrySet()) {
@@ -94,6 +102,7 @@ public class VirtualPetShelterApp {
             System.out.println(petVariable.getPetName() + petVariable.getPetDescription());
         }
     }
+
     private static void showPetNames(VirtualPetShelter all) {
         Map<String, VirtualPet> shelter = all.getInventory();
         for (Map.Entry<String, VirtualPet> entry : shelter.entrySet()) {

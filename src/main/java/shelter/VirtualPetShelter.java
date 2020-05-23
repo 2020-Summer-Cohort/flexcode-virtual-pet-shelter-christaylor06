@@ -38,7 +38,13 @@ public class VirtualPetShelter {
     }
 
 
+    public boolean contains(String petName) {
+        return allPets.containsKey(petName);
+    }
 
+    public VirtualPet getPet(String petName) {
+        return allPets.get(petName);
+    }
 }
 
 
