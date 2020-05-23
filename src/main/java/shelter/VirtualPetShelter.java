@@ -14,6 +14,13 @@ public class VirtualPetShelter {
     public VirtualPet getPetName(String petName) {
         return allPets.get(petName);
     }
+    public void intakeNewPet(VirtualPet newPet){
+        allPets.put(newPet.getPetName(), newPet);
+    }
+    public void adoptPet(String petName){
+        allPets.remove(petName);
+    }
+
     public void feedAllPets(){
         for(Map.Entry<String, VirtualPet> entry : allPets.entrySet()){
             VirtualPet feedPets = entry.getValue();
@@ -29,6 +36,8 @@ public class VirtualPetShelter {
     public void playWithAPet(VirtualPet playtime){
         playtime.plays();
     }
+
+
 
 }
 

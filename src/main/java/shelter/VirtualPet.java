@@ -1,7 +1,5 @@
 package shelter;
 
-import java.util.ArrayList;
-
 public class VirtualPet {
 
     //Fields (Properties for each Virtual Pet object)
@@ -53,16 +51,10 @@ public class VirtualPet {
     public void drink() {
         thirstMeter = 0;
     }
-
     public void plays() {
         boredomMeter = 0;
     }
 
-
-//    ArrayList<String> newPetInputs = new ArrayList<String>();
-//    while(in.hasPetDescription()){
-//        newPetInputs.add.petDescription());
-//    }
 }
 //        This page should create an arraylist for each new pet added
 //          The name and description should come from user input
