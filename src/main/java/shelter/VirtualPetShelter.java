@@ -5,10 +5,6 @@ import java.util.HashMap;
 
 public class VirtualPetShelter {
 
-//    public VirtualPetShelter() {
-//    }
-
-
     private Map<String, VirtualPet> allPets = new HashMap<String, VirtualPet>();
 
     public Map<String, VirtualPet> getInventory() {
@@ -34,7 +30,12 @@ public class VirtualPetShelter {
             waterPets.drink();
         }
     }
-
+public void tickForAllPets(){
+    for(Map.Entry<String, VirtualPet> entry : allPets.entrySet()){
+        VirtualPet tick = entry.getValue();
+        tick.timeTick();
+    }
+}
     public boolean contains(String petName) {
         return allPets.containsKey(petName);
     }
@@ -42,7 +43,6 @@ public class VirtualPetShelter {
     public VirtualPet getPet(String petName) {
         return allPets.get(petName);
     }
-
 
 }
 

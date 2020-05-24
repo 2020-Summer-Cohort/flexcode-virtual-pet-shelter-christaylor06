@@ -4,8 +4,8 @@ public class VirtualPet {
 
 
     //Fields (Properties for each Virtual Pet object)
-    private String petName;
-    private String petDescription;
+    private final String petName;
+    private final String petDescription;
     private int hungerMeter;
     private int thirstMeter;
     private int boredomMeter;
@@ -14,13 +14,13 @@ public class VirtualPet {
     public VirtualPet(String petName, String petDescription) {
         this.petName = petName;
         this.petDescription = petDescription;
-        this.hungerMeter = (int) getRandomIntegerBetweenRange(0,10);
-        this.thirstMeter = (int) getRandomIntegerBetweenRange(0,10);
-        this.boredomMeter = (int) getRandomIntegerBetweenRange(0,10);
+        this.hungerMeter = (int) getRandomStartingMeterLevelBetween2And8(2, 8);
+        this.thirstMeter = (int) getRandomStartingMeterLevelBetween2And8(2,8);
+        this.boredomMeter = (int) getRandomStartingMeterLevelBetween2And8(2,8);
     }
 
 
-    public static double getRandomIntegerBetweenRange(double min, double max){
+    public static double getRandomStartingMeterLevelBetween2And8(double min, double max){
         double x = (int)(Math.random()*((max-min)+1))+min;
         return x;
     }
@@ -55,21 +55,39 @@ public class VirtualPet {
     }
 
     public int eat() {
-        if(hungerMeter < 1){
-            return 0;
-        }else if(hungerMeter > 10){
-            return 10;
+        while (hungerMeter < 1){
+            hungerMeter = 0;
         }
-        return hungerMeter -= 1;
+        while (hungerMeter > 10){
+            hungerMeter = 10;
+        }
+        return hungerMeter -= 3;
     }
 
     public void drink() {
-        thirstMeter -= 1;
+        while (thirstMeter < 1) {
+            thirstMeter = 0;
+        }
+        while(thirstMeter > 10){
+            thirstMeter = 10;
+        }
+        thirstMeter -= 3;
     }
 
     public void plays() {
-        boredomMeter -= 1;
+        while (boredomMeter < 1) {
+            boredomMeter = 0;
+        }
+        while(boredomMeter > 10){
+            boredomMeter = 10;
+        }
+        boredomMeter -= 3;
+        hungerMeter += 3;
+        thirstMeter += 4;
+    }
+    public void timeTick(){
+        boredomMeter += 1;
         hungerMeter +=1;
-        thirstMeter +=2;
+        thirstMeter +=1;
     }
 }

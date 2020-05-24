@@ -57,7 +57,9 @@ public class VirtualPetShelterApp {
                 System.out.println("You played with " + petName);
             } else if (menuOption.equals("4")) {
                 System.out.println("Someone is looking to adopt a pet. Here's who is available: ");
+                System.out.println();
                 showPetNamesAndDescriptions(misfitPetShelter);
+                System.out.println();
                 System.out.println("Enter the name of the pet to be adopted: ");
                 String adoptedPetName = input.nextLine();
                 misfitPetShelter.adoptPet(adoptedPetName);
@@ -73,7 +75,7 @@ public class VirtualPetShelterApp {
             } else {
                 System.out.println("Please enter a number between 1 and 6");
             }
-            //TICK HERE
+            misfitPetShelter.tickForAllPets();
             System.out.println("This is the status of your pets: ");
             showPetStatuses(misfitPetShelter);
             System.out.println();
