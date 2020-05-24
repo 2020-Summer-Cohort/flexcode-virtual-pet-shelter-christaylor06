@@ -1,7 +1,5 @@
 package shelter;
 
-import java.util.Random;
-
 public class VirtualPet {
 
 
@@ -35,9 +33,6 @@ public class VirtualPet {
         this.boredomMeter = localBoredomMeter;
     }
 
-//    public static void remove(String petName) {
-//    }
-
     //Methods
     public String getPetName() {
         return petName;
@@ -59,19 +54,22 @@ public class VirtualPet {
         return boredomMeter;
     }
 
-    public void eat() {
-        hungerMeter += 1;
+    public int eat() {
+        if(hungerMeter < 1){
+            return 0;
+        }else if(hungerMeter > 10){
+            return 10;
+        }
+        return hungerMeter -= 1;
     }
 
     public void drink() {
-        thirstMeter += 1;
+        thirstMeter -= 1;
     }
 
     public void plays() {
-        boredomMeter += 1;
+        boredomMeter -= 1;
+        hungerMeter +=1;
+        thirstMeter +=2;
     }
 }
-//        This page should create an arraylist for each new pet added
-//          The name and description should come from user input
-//          Hunger, thirst and boredom should be auto-generated
-//        ArrayList = includes all of the descriptive info about the pet - name, description

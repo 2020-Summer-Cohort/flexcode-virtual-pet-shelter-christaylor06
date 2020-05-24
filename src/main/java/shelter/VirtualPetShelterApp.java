@@ -59,22 +59,21 @@ public class VirtualPetShelterApp {
                 System.out.println("Someone is looking to adopt a pet. Here's who is available: ");
                 showPetNamesAndDescriptions(misfitPetShelter);
                 System.out.println("Enter the name of the pet to be adopted: ");
-                String petName = input.nextLine();
-//                if (misfitPetShelter.contains(petName)) {
-//                    VirtualPet adoptPet = misfitPetShelter.getPet(petName);
-//                    adoptPet.remove(VirtualPet);
-//                }
-                System.out.println(petName + " was adopted");
+                String adoptedPetName = input.nextLine();
+                misfitPetShelter.adoptPet(adoptedPetName);
+                System.out.println(adoptedPetName + " was adopted");
             } else if (menuOption.equals("5")) {
                 System.out.println("A new pet has arrived. Tells us the the pet's name:");
                 String newPetName = input.nextLine();
                 System.out.println("Provide a brief description of ths pet: ");
                 String newPetDescription = input.nextLine();
-                System.out.println("[pet name] has been admitted into the shelter");
+                VirtualPet newArrival = new VirtualPet(newPetName, newPetDescription);
+                misfitPetShelter.intakeNewPet(newArrival);
+                System.out.println(newPetName + " has been admitted into the shelter");
             } else {
                 System.out.println("Please enter a number between 1 and 6");
-//            [NEED TICK HERE]
             }
+            //TICK HERE
             System.out.println("This is the status of your pets: ");
             showPetStatuses(misfitPetShelter);
             System.out.println();
