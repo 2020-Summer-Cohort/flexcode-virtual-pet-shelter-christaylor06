@@ -65,7 +65,7 @@ public class VirtualPet {
     }
 
     public void drink() {
-        while (thirstMeter < 1) {
+        while (thirstMeter < 0) {
             thirstMeter = 0;
         }
         while(thirstMeter > 10){
