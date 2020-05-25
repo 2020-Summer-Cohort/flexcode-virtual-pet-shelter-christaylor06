@@ -1,17 +1,19 @@
 package shelter;
+
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class VirtualPetTest {
     @Test
-    void getPetName() {
+    void shouldGetPetName() {
         VirtualPet underTest = new VirtualPet("Tommy", "black cat with a fluffy tail", 7, 0, 0);
         String petName = underTest.getPetName();
         assertEquals("Tommy", petName);
     }
 
     @Test
-    void getPetDescription() {
+    void shouldGetPetDescription() {
         VirtualPet underTest = new VirtualPet("Tommy", "black cat with a fluffy tail", 7, 0, 0);
         String petDescription = underTest.getPetDescription();
         assertEquals("black cat with a fluffy tail", petDescription);
@@ -52,68 +54,28 @@ public class VirtualPetTest {
         assertEquals(2, boredomMeter);
     }
 
-
     @Test
-    public void shouldAdmitNewPetToArrayListWithDescriptionPlusBoredomHungerAndThirst() {
-        //arrange
-        //act
-        //assert
+    public void shouldDecreaseBoredomBy3WhenPlayedWith() {
+        VirtualPet underTest = new VirtualPet("Tommy", "black cat with a fluffy tail", 7, 4, 3);
+        underTest.plays();
+        int boredomMeter = underTest.getBoredom();
+        assertEquals(0, boredomMeter);
     }
 
     @Test
-    public void shouldRemovePetFromArrayListWhenAdopted() {
-        //arrange
-        //act
-        //assert
+    public void shouldDecreaseThirstForPetBy3WhenGivenWater() {
+        VirtualPet underTest = new VirtualPet("Samantha", "Samantha?", 3, 4, 7);
+        underTest.drink();
+        int thirstMeter = underTest.getThirst();
+        assertEquals(1, thirstMeter);
     }
 
     @Test
-    public void shouldDecreaseBoredomWhenPlayedWith() {
-        //arrange
-        //act
-        //assert
+    public void shouldDecreaseHungerForPetBy3WhenFed() {
+        VirtualPet underTest = new VirtualPet("Samantha", "Samantha?", 3, 4, 7);
+        underTest.eat();
+        int hungerMeter = underTest.getHunger();
+        assertEquals(0, hungerMeter);
     }
 
-    @Test
-    public void shouldDecreaseThirstForAllPetsWhenGivenWater() {
-        //arrange
-        //act
-        //assert
-    }
-
-    @Test
-    public void shouldDecreaseHungerForAllPetsWhenFed() {
-        //arrange
-        //act
-        //assert
-    }
-
-
-    @Test
-    void adoptPet() {
-    }
-
-    @Test
-    void getHunger() {
-    }
-
-    @Test
-    void getThirst() {
-    }
-
-    @Test
-    void getBoredom() {
-    }
-
-    @Test
-    void eat() {
-    }
-
-    @Test
-    void drink() {
-    }
-
-    @Test
-    void plays() {
-    }
 }

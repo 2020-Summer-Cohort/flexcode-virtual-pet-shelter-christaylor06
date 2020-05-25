@@ -1,7 +1,6 @@
 package shelter;
 
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Scanner;
 
 public class VirtualPetShelterApp {
@@ -9,7 +8,7 @@ public class VirtualPetShelterApp {
 
         VirtualPetShelter misfitPetShelter = new VirtualPetShelter();
         VirtualPet pet1 = new VirtualPet("Josie", "A social calico kitten with a penchant for rock music");
-        VirtualPet pet2 = new VirtualPet("Thomas", "Tuxedo adult male cat. Good companion. Bad mouser.");
+        VirtualPet pet2 = new VirtualPet("Tom   ", "Tuxedo adult male cat. Good companion. Bad mouser.");
         VirtualPet pet3 = new VirtualPet("Selina", "Adult female cat. A tad mischievous... but always with the best intentions.");
         VirtualPet pet4 = new VirtualPet("Salem", "Adult male cat. Black with magical green eyes.");
         VirtualPet pet5 = new VirtualPet("Bubbles", "A loving but very confused little bulldog.");
@@ -120,6 +119,5 @@ public class VirtualPetShelterApp {
             System.out.println(petVariable.getPetName());
         }
     }
-
 
 }
